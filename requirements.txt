@@ -2,6 +2,7 @@ pytesseract
 pandas
 urllib3==1.26.13
 requests==2.28.1
+install openssl==1.1
 openai
 flask
 jsonify
