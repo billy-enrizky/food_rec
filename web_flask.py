@@ -19,7 +19,7 @@ def recommend_menu(image_url, restriction):
     text = pytesseract.image_to_string(img)
 
     # Your OpenAI API key
-    api_key = "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"
+    api_key = openai_api
 
     # Your input prompt for GPT-3
     prompt = f"find all foods from the text: {text}"
@@ -38,15 +38,15 @@ def recommend_menu(image_url, restriction):
     ingredients = ingredients[ingredients.find(':') + 1:].strip()
 
     # Your Edamam API credentials
-    app_id = '34340b2c'
-    app_key = 'aa54ba6e5ea8ffdd204444757a4983d2'
+    app_id = edamam_id
+    app_key = edamam_key
 
     def find_ingredients(dish_name):
         # Make the API request
         url = f'https://api.edamam.com/api/food-database/parser'
         params = {
-            'app_id': app_id,
-            'app_key': app_key,
+            'app_id': edamam_id,
+            'app_key': edamam_key,
             'ingr': dish_name,
         }
         response = requests.get(url, params=params)
